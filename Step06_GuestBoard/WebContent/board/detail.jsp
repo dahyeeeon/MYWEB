@@ -39,6 +39,8 @@
 		<td><%=dto.getRegdate() %></td>
 	</tr>
 </table>
+
+
 <a href="updateform.jsp?num=<%=dto.getNum() %>">수정</a>
 <a href="javascript:deleteCheck()">삭제</a>
 <script>
