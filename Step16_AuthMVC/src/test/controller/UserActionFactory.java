@@ -1,6 +1,8 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.users.action.CheckIdAction;
+import test.users.action.SignupAction;
 import test.users.action.SignupFormAction;
 
 
@@ -25,6 +27,10 @@ public class UserActionFactory {
 			action=new HomeAction();
 		}else if(command.equals("/users/signup_form")) {
 			action=new SignupFormAction();
+		}else if(command.equals("/users/checkid")) {
+			action=new CheckIdAction();
+		}else if(command.equals("/users/signup")) {
+			action=new SignupAction();
 		}
 		return action;
 	}
