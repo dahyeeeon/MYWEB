@@ -12,6 +12,9 @@
 <ul>
 	<li><a href="test01.jsp">JSTL 반복문</a></li>
 	<li><a href="test02.jsp">단일 if 문</a></li>
+	<li><a href="test03.jsp">유사 switch 문</a></li>
+	<li><a href="test04.jsp">set, out</a></li>
+	<li><a href="test05.jsp">JSTL 반복문2</a></li>
 </ul>
 </body>
 </html>

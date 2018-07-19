@@ -22,7 +22,9 @@
 <body>
 <h3>반복문 forEach</h3>
 <c:forEach var="i" begin="0" end="9" step="1">
+	
 	<strong>${i }</strong> &nbsp;
+
 </c:forEach>
 
 <h3>request 에 담긴 내용을 반복문 돌면서 출력</h3>

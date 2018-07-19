@@ -29,7 +29,6 @@
 <c:if test="${not empty id }">
 	<p>${id } 님 로그인중...</p>
 </c:if>
-
 <c:choose>
 	<c:when test="${not empty id }">
 		<p>${id } 님 로그인중...</p>
