@@ -1,6 +1,7 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.users.action.SignupFormAction;
 
 
 public class UserActionFactory {
@@ -22,6 +23,8 @@ public class UserActionFactory {
 		if(command.equals("/home")) {
 			//홈 요청 처리 
 			action=new HomeAction();
+		}else if(command.equals("/users/signup_form")) {
+			action=new SignupFormAction();
 		}
 		return action;
 	}
