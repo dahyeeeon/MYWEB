@@ -2,6 +2,9 @@ package test.controller;
 
 import test.action.HomeAction;
 import test.users.action.CheckIdAction;
+import test.users.action.LoginAction;
+import test.users.action.LoginFormAction;
+import test.users.action.LogoutAction;
 import test.users.action.SignupAction;
 import test.users.action.SignupFormAction;
 
@@ -31,6 +34,12 @@ public class UserActionFactory {
 			action=new CheckIdAction();
 		}else if(command.equals("/users/signup")) {
 			action=new SignupAction();
+		}else if(command.equals("/users/loginform")) {
+			action=new LoginFormAction();
+		}else if(command.equals("/users/login")) {
+			action=new LoginAction();
+		}else if(command.equals("/users/logout")) {
+			action=new LogoutAction();
 		}
 		return action;
 	}
