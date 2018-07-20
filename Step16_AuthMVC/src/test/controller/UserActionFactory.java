@@ -7,6 +7,7 @@ import test.users.action.LoginFormAction;
 import test.users.action.LogoutAction;
 import test.users.action.SignupAction;
 import test.users.action.SignupFormAction;
+import test.users.action.UsersDeleteAction;
 import test.users.action.UsersInfoAction;
 import test.users.action.UsersUpdateAction;
 import test.users.action.UsersUpdateFormAction;
@@ -49,6 +50,8 @@ public class UserActionFactory {
 			action=new UsersUpdateFormAction();
 		}else if(command.equals("/users/private/update")) {
 			action=new UsersUpdateAction();
+		}else if(command.equals("/users/private/delete")) {
+			action=new UsersDeleteAction();
 		}
 		
 		return action;
