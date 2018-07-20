@@ -7,6 +7,9 @@ import test.users.action.LoginFormAction;
 import test.users.action.LogoutAction;
 import test.users.action.SignupAction;
 import test.users.action.SignupFormAction;
+import test.users.action.UsersInfoAction;
+import test.users.action.UsersUpdateAction;
+import test.users.action.UsersUpdateFormAction;
 
 
 public class UserActionFactory {
@@ -40,7 +43,14 @@ public class UserActionFactory {
 			action=new LoginAction();
 		}else if(command.equals("/users/logout")) {
 			action=new LogoutAction();
+		}else if(command.equals("/users/private/info")) {
+			action=new UsersInfoAction();
+		}else if(command.equals("/users/private/updateform")) {
+			action=new UsersUpdateFormAction();
+		}else if(command.equals("/users/private/update")) {
+			action=new UsersUpdateAction();
 		}
+		
 		return action;
 	}
 }
