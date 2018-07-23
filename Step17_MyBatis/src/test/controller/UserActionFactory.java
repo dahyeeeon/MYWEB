@@ -1,7 +1,11 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.file.action.FileDeleteAction;
+import test.file.action.FileDownloadAction;
 import test.file.action.FileListAction;
+import test.file.action.FileUploadAction;
+import test.file.action.FileUploadFormAction;
 import test.member.action.MemberDeleteAction;
 import test.member.action.MemberInsertAction;
 import test.member.action.MemberInsertformAction;
@@ -78,6 +82,14 @@ public class UserActionFactory {
 			action=new UsersDeleteAction();
 		}else if(command.equals("/file/list")) {
 			action=new FileListAction();
+		}else if(command.equals("/file/private/upload_form")) {
+			action=new FileUploadFormAction();
+		}else if(command.equals("/file/private/upload")) {
+			action=new FileUploadAction();
+		}else if(command.equals("/file/download")) {
+			action=new FileDownloadAction();
+		}else if(command.equals("/file/private/delete")) {
+			action=new FileDeleteAction();
 		}
 		
 		return action;

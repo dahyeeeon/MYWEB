@@ -52,7 +52,7 @@ public class LoginFilter implements Filter{//1.
 		String id=(String)session.getAttribute("id");
 		if(id==null) {//로그인 하지 않았으면
 			//로그인 페이지로 이동하라고 리다일렉트 응답을 준다.
-			response.sendRedirect(cPath+"/users/loginform.jsp?url="+url);
+			response.sendRedirect(cPath+"/users/loginform.do?url="+url);
 		}else {
 			// 요청의 흐름 계속 진행 시키기 
 			chain.doFilter(req, res);
