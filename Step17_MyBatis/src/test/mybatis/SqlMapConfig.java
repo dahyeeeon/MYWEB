@@ -21,6 +21,7 @@ public class SqlMapConfig {
 			reader.close();
 			System.out.println("SqlSessionFactory 객체 생성 성공!");
 		}catch(Exception e){
+			e.printStackTrace();
 			System.out.println("SqlSessionFactory 객체 생성 실패!");
 		}
 	}
