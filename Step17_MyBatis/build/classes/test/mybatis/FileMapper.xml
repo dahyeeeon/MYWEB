@@ -28,12 +28,22 @@
 			SYSDATE)
 	</insert>
 	
-	<select id="getList" resultType="test.file.dto.FileDto">
-		SELECT num,writer,title,downCount,saveFileName,
-			orgFileName,fileSize,
-			TO_CHAR(regdate, 'YYYY.MM.DD AM HH:MI') AS regdate
+	<select id="getList" parameterType="test.file.dto.FileDto"
+		resultType="test.file.dto.FileDto">
+		SELECT *
+		FROM (SELECT *, ROWNUM rnum
+			  FROM ( SELECT num,writer,title,downCount,saveFileName,
+					orgFileName,fileSize,
+					TO_CHAR(regdate, 'YYYY.MM.DD AM HH:MI') AS regdate
+					FROM board_file
+					ORDER BY num DESC )
+			  )
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	
+	<select id="getCount" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0) 
 		FROM board_file
-		ORDER BY num DESC
 	</select>
 </mapper>
 

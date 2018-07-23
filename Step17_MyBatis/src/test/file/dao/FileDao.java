@@ -92,7 +92,7 @@ public class FileDao {
 		}
 	}
 	//파일 목록을 리턴 하는 메소드
-	public List<FileDto> getList(){
+	public List<FileDto> getList(FileDto dto){
 		SqlSession session=null;
 		List<FileDto> list=null;
 		try {
@@ -101,7 +101,7 @@ public class FileDao {
 			 *  .selectList() 인 경우에는 
 			 *  resultType : List 의 Generic type 이다. 
 			 */
-			list=session.selectList("file.getList");
+			list=session.selectList("file.getList", dto);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -109,6 +109,22 @@ public class FileDao {
 		}
 		return list;
 	}//getList()
+	
+	//전체 row 의 갯수를 리턴하는 메소드
+	public int getCount() {
+		SqlSession session=null;
+		int count=0;
+		try {
+			session=factory.openSession();
+			count=session.selectOne("file.getCount");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return count;
+	}
+	
 }//class
 
 
