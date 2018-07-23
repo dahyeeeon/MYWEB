@@ -1,6 +1,7 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.file.action.FileListAction;
 import test.member.action.MemberDeleteAction;
 import test.member.action.MemberInsertAction;
 import test.member.action.MemberInsertformAction;
@@ -75,6 +76,8 @@ public class UserActionFactory {
 			action=new UsersUpdateAction();
 		}else if(command.equals("/users/private/delete")) {
 			action=new UsersDeleteAction();
+		}else if(command.equals("/file/list")) {
+			action=new FileListAction();
 		}
 		
 		return action;
