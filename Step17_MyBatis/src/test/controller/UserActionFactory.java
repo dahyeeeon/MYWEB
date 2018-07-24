@@ -1,6 +1,7 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.cafe.action.CafeInsertformAction;
 import test.cafe.action.CafeListAction;
 import test.file.action.FileDeleteAction;
 import test.file.action.FileDownloadAction;
@@ -93,6 +94,8 @@ public class UserActionFactory {
 			action=new FileDeleteAction();
 		}else if(command.equals("/cafe/list")) {
 			action=new CafeListAction();
+		}else if(command.equals("/cafe/private/insertform")) {
+			action=new CafeInsertformAction();
 		}
 		
 		return action;
