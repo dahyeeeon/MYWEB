@@ -1,6 +1,7 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.cafe.action.CafeListAction;
 import test.file.action.FileDeleteAction;
 import test.file.action.FileDownloadAction;
 import test.file.action.FileListAction;
@@ -90,11 +91,18 @@ public class UserActionFactory {
 			action=new FileDownloadAction();
 		}else if(command.equals("/file/private/delete")) {
 			action=new FileDeleteAction();
+		}else if(command.equals("/cafe/list")) {
+			action=new CafeListAction();
 		}
 		
 		return action;
 	}
 }
+
+
+
+
+
 
 
 
