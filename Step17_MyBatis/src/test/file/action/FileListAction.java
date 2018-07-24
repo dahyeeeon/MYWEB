@@ -16,7 +16,7 @@ public class FileListAction extends Action{
 	//한 페이지에 나타낼 로우의 갯수
 	private static final int PAGE_ROW_COUNT=5;
 	//하단 디스플레이 페이지 갯수
-	private static final int PAGE_DISPLAY_COUNT=5;
+	private static final int PAGE_DISPLAY_COUNT=3;
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -58,6 +58,13 @@ public class FileListAction extends Action{
 		
 		//2. request 에 담고
 		request.setAttribute("list", list);
+		// 페이징 처리에 관련된 값도 request 에 담기 
+		request.setAttribute("pageNum", pageNum);
+		request.setAttribute("startPageNum", startPageNum);
+		request.setAttribute("endPageNum", endPageNum);
+		request.setAttribute("totalPageCount", totalPageCount);
+		
+		
 		//3. view 페이지로 forward 이동
 		return new ActionForward("/views/file/list.jsp");
 	}

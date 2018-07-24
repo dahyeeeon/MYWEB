@@ -31,12 +31,12 @@
 	<select id="getList" parameterType="test.file.dto.FileDto"
 		resultType="test.file.dto.FileDto">
 		SELECT *
-		FROM (SELECT *, ROWNUM rnum
+		FROM (SELECT result1.*, ROWNUM rnum
 			  FROM ( SELECT num,writer,title,downCount,saveFileName,
 					orgFileName,fileSize,
 					TO_CHAR(regdate, 'YYYY.MM.DD AM HH:MI') AS regdate
 					FROM board_file
-					ORDER BY num DESC )
+					ORDER BY num DESC ) result1
 			  )
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>

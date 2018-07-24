@@ -70,47 +70,37 @@
 	</table>
 	
 	<!-- 페이징 처리 -->
-	<ul class="pagination">
+	<div class="page_display">
 		<c:choose>
 			<c:when test="${startPageNum ne 1 }">
-				<li>
-					<a href="list.do?pageNum=${startPageNum-1 }">&laquo;</a>
-				</li>
+				<a href="list.do?pageNum=${startPageNum-1 }">Prev</a>
 			</c:when>
 			<c:otherwise>
-				<li class="disabled">
-					<a href="javascript:">&laquo;</a>
-				</li>
+				<a class="muted" href="javascript:">Prev</a>
 			</c:otherwise>
 		</c:choose>
+	
 		<c:forEach var="i" begin="${startPageNum }"
 			end="${endPageNum }">
 			<c:choose>
 				<c:when test="${i eq pageNum }">
-					<li class="active">
-						<a href="list.do?pageNum=${i }">${i }</a>
-					</li>
+					<a class="active" href="list.do?pageNum=${i }">${i }</a>
 				</c:when>
 				<c:otherwise>
-					<li>
-						<a href="list.do?pageNum=${i }">${i }</a>
-					</li>
+					<a href="list.do?pageNum=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
+		
 		<c:choose>
 			<c:when test="${endPageNum lt totalPageCount }">
-				<li>
-					<a href="list.do?pageNum=${endPageNum+1 }">&raquo;</a>
-				</li>
+				<a href="list.do?pageNum=${endPageNum+1 }">Next</a>
 			</c:when>
 			<c:otherwise>
-				<li class="disabled">
-					<a class="muted" href="javascript:">&raquo;</a>
-				</li>
+				<a class="muted" href="javascript:">Next</a>
 			</c:otherwise>
-		</c:choose>		
-	</ul>
+		</c:choose>
+	</div>
 	
 </div>
 <script>

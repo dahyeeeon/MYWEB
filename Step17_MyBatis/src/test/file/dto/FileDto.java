@@ -12,7 +12,7 @@ public class FileDto {
 	// 페이징 처리 할때 필요한 값 
 	private int startRowNum;
 	private int endRowNum;
-	
+
 	//default 생성자
 	public FileDto() {}
 
