@@ -1,6 +1,7 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.cafe.action.CafeInsertAction;
 import test.cafe.action.CafeInsertformAction;
 import test.cafe.action.CafeListAction;
 import test.file.action.FileDeleteAction;
@@ -96,6 +97,8 @@ public class UserActionFactory {
 			action=new CafeListAction();
 		}else if(command.equals("/cafe/private/insertform")) {
 			action=new CafeInsertformAction();
+		}else if(command.equals("/cafe/private/insert")) {
+			action=new CafeInsertAction();
 		}
 		
 		return action;
