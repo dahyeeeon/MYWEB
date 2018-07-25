@@ -72,6 +72,38 @@ public class CafeDao {
 		}
 		return list;
 	}
+	//글 하나의 정보를 리턴하는 메소드 
+	public CafeDto getData(int num) {
+		SqlSession session=null;
+		CafeDto dto=null;
+		try {
+			session=factory.openSession();
+			dto=session.selectOne("cafe.getData", num);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return dto;
+	}
+	//글정보를 삭제하는 메소드
+	public boolean delete(int num) {
+		SqlSession session = null;
+		int flag = 0;
+		try {
+			session = factory.openSession(true);
+			flag=session.delete("cafe.delete", num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 
