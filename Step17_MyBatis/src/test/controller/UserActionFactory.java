@@ -1,9 +1,12 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.cafe.action.CafeDeleteAction;
+import test.cafe.action.CafeDetailAction;
 import test.cafe.action.CafeInsertAction;
 import test.cafe.action.CafeInsertformAction;
 import test.cafe.action.CafeListAction;
+import test.cafe.action.CafeUpdateformAction;
 import test.file.action.FileDeleteAction;
 import test.file.action.FileDownloadAction;
 import test.file.action.FileListAction;
@@ -99,6 +102,12 @@ public class UserActionFactory {
 			action=new CafeInsertformAction();
 		}else if(command.equals("/cafe/private/insert")) {
 			action=new CafeInsertAction();
+		}else if(command.equals("/cafe/detail")) {
+			action=new CafeDetailAction();
+		}else if(command.equals("/cafe/private/delete")) {
+			action=new CafeDeleteAction();
+		}else if(command.equals("/cafe/private/updateform")) {
+			action=new CafeUpdateformAction();
 		}
 		
 		return action;

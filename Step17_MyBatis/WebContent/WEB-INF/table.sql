@@ -8,3 +8,5 @@ regdate DATE
 );
 
 CREATE SEQUENCE board_cafe_seq;
+
+SELECT * FROM board_cafe;

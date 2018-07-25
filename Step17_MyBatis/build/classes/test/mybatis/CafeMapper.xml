@@ -27,6 +27,18 @@
 			  )
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>
+	
+	<select id="getData" parameterType="int" 
+		resultType="cafeDto">
+		SELECT <include refid="cafeColumn"/>
+		FROM board_cafe
+		WHERE num=#{num}	
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM board_cafe
+		WHERE num=#{num}
+	</delete>
 </mapper>
 
 
