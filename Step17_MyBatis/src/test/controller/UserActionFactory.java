@@ -1,6 +1,14 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.cafe.action.CafeInsertAction;
+import test.cafe.action.CafeInsertformAction;
+import test.cafe.action.CafeListAction;
+import test.file.action.FileDeleteAction;
+import test.file.action.FileDownloadAction;
+import test.file.action.FileListAction;
+import test.file.action.FileUploadAction;
+import test.file.action.FileUploadFormAction;
 import test.member.action.MemberDeleteAction;
 import test.member.action.MemberInsertAction;
 import test.member.action.MemberInsertformAction;
@@ -75,11 +83,32 @@ public class UserActionFactory {
 			action=new UsersUpdateAction();
 		}else if(command.equals("/users/private/delete")) {
 			action=new UsersDeleteAction();
+		}else if(command.equals("/file/list")) {
+			action=new FileListAction();
+		}else if(command.equals("/file/private/upload_form")) {
+			action=new FileUploadFormAction();
+		}else if(command.equals("/file/private/upload")) {
+			action=new FileUploadAction();
+		}else if(command.equals("/file/download")) {
+			action=new FileDownloadAction();
+		}else if(command.equals("/file/private/delete")) {
+			action=new FileDeleteAction();
+		}else if(command.equals("/cafe/list")) {
+			action=new CafeListAction();
+		}else if(command.equals("/cafe/private/insertform")) {
+			action=new CafeInsertformAction();
+		}else if(command.equals("/cafe/private/insert")) {
+			action=new CafeInsertAction();
 		}
 		
 		return action;
 	}
 }
+
+
+
+
+
 
 
 

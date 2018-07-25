@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cafe">
+	
+	<sql id="cafeColumn">
+		num,writer,title,content,viewCount,
+		TO_CHAR(regdate,'YYYY.MM.DD AM HH:MI') AS regdate
+	</sql>
+
+	<insert id="insert" parameterType="cafeDto">
+		INSERT INTO board_cafe
+		(num, writer, title, content, viewCount, regdate)
+		VALUES(board_cafe_seq.NEXTVAL, #{writer}, #{title},
+			#{content}, #{viewCount}, SYSDATE)
+	</insert>
+	<select id="getCount" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM board_cafe
+	</select>
+	<select id="getList" parameterType="cafeDto"
+		resultType="cafeDto">
+		SELECT *
+		FROM (SELECT result1.*, ROWNUM rnum
+			  FROM ( SELECT <include refid="cafeColumn"/>
+					FROM board_cafe
+					ORDER BY num DESC ) result1
+			  )
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
